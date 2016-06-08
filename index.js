@@ -20,7 +20,7 @@ module.exports = function(root, key, value){
       if (isObj(obj[k])){
         traverseDeep(join(path, k), obj[k])
       }
-      else if (k === key && obj[k] === value){
+      else if (k === key && Object.is(obj[k], value)){
         PATH = join(path, k) 
       }
     })
@@ -36,7 +36,7 @@ module.exports = function(root, key, value){
       if (isObj(obj[k])){
         traverseDeep(k, obj[k])
       }
-      else if (k === key && obj[k] === value){
+      else if (k === key && Object.is(obj[k], value)){
         PATH = join(path, k)
       }
     });
